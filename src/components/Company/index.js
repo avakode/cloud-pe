@@ -22,7 +22,7 @@ function Company(props) {
               <ItemTextSpaceBetween key={key}>
                 {COMPANY_FIELDS[key].label}: <InnerText textColor={COMPANY_FIELDS[key].color}>
                   <ItemTextBold>
-                    {props.data.open}
+                    {props.data[key]}
                   </ItemTextBold>
                 </InnerText>
               </ItemTextSpaceBetween>
