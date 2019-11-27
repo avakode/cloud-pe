@@ -14,7 +14,7 @@ export default class TopCompanies extends Component {
   };
 
   componentDidMount() {
-    fetch(`${API_BASE}/companies?page_size=${COMPANIES_FETCH_SIZE}&${API_KEY}`)
+    fetch(`${API_BASE}/companies?${COMPANIES_FETCH_SIZE}&${API_KEY}`)
       .then(res => res.json())
       .then(({ companies }) => {
         const transformedCompanies = {};

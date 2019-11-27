@@ -4,16 +4,26 @@ import { Comment } from './style';
 import { ItemTitle, ItemText } from '../style';
 
 export default class Comments extends Component {
+  storageComments = JSON.parse(localStorage.getItem('comments'));
   state = {
-    comments: JSON.parse(localStorage.getItem('comments')) !== null ? JSON.parse(localStorage.getItem('comments')) : [],
+    comments: (
+      this.storageComments !== null &&
+      this.storageComments[this.props.ticker] !== undefined
+    ) ? this.storageComments[this.props.ticker] : [],
   }
+
 
   addComment = (name, text) => {
     this.setState(prevState => {
       prevState.comments.push({ name, text });
       return prevState;
     }, () => {
-      localStorage.setItem('comments', JSON.stringify(this.state.comments));
+        const commetns = {
+          ...this.storageComments,
+          [this.props.ticker]: this.state.comments
+      };
+
+      localStorage.setItem('comments', JSON.stringify(commetns));
     });
   }
 

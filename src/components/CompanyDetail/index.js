@@ -34,7 +34,7 @@ export default class CompanyDetail extends Component {
         })
       })
 
-    fetch(`${API_BASE}/companies/${ticker}/news?page_size=${NEWS_FETCH_SIZE}&${API_KEY}`)
+    fetch(`${API_BASE}/companies/${ticker}/news?${NEWS_FETCH_SIZE}&${API_KEY}`)
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -88,7 +88,7 @@ export default class CompanyDetail extends Component {
           )}
         </CompanyWrapper>
         <Title>Comments</Title>
-        <Comments />
+        <Comments ticker={this.props.match.params.ticker} />
         <Title>Recent News</Title>
         <RelatedPosts>
           {

@@ -1,7 +1,7 @@
 export const API_BASE = 'https://api-v2.intrinio.com';
 export const API_KEY = 'api_key=OjZiMzEzNTJlYjk4YjA4OGZlNTQ4MThiZTY5NGZmYmU5';
-export const COMPANIES_FETCH_SIZE = 10;
-export const NEWS_FETCH_SIZE = 5;
+export const COMPANIES_FETCH_SIZE = 'page_size=10';
+export const NEWS_FETCH_SIZE = 'page_size=5';
 export const COMPANY_FIELDS = {
   open: {
     label:'Open',
